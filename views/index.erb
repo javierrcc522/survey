@@ -1,0 +1,18 @@
+<h1>Survey Maker</h1>
+
+<h1> Your current Surveys: <h1>
+  <ul>
+    <h5><% @survey.each do |s| %>
+    <li><%= s.description %></li>
+    <% end %></h5>
+  </ul>
+
+
+<h2>Create a new survey:</h2>
+<div class="form-control">
+  <form action="/survey/new" method="post">
+    <label for="description">Enter survey description:</label>
+    <input name="description" type="text" id="description">
+    <button type="submit">Create!</button>
+  </form>
+</div>
