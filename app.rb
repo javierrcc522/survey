@@ -20,7 +20,7 @@ end
 
 get("/survey/new/:id") do
   @survey = Survey.find(params[:id])
-  @question = @survey.questions()
+  @question = @survey.questions() #keeps the questions on the same website
   erb(:survey_info)
 end
 
