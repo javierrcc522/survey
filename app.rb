@@ -30,3 +30,9 @@ patch("/survey/:id") do
   @survey.update({:description => description})
   erb(:survey_info)
 end
+
+delete("/survey/:id") do
+  @survey = Survey.find(params[:id])
+  @survey.delete
+  redirect('/')
+end

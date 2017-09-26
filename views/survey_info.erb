@@ -7,3 +7,11 @@
     <input name="description" type="text" id="description">
     <button type="submit">Update</button>
   </form>
+
+  <form action="/survey/<%= @survey.id %>" method="post">
+    <input name="_method" type="hidden" value="delete">
+    <button type="submit">Delete</button>
+  </form>
+
+<br>
+<h5><a href="/">Return Home</a></h5>
