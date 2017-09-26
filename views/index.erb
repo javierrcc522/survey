@@ -1,12 +1,11 @@
 <h1>Survey Maker</h1>
 
-<h1> Your current Surveys: <h1>
+<h2> Your current Surveys: <h2>
   <ul>
     <h5><% @survey.each do |s| %>
-    <li><%= s.description %></li>
+    <a href="/survey/new/<%= s.id() %>"><li><%= s.description %></li></a>
     <% end %></h5>
   </ul>
-
 
 <h2>Create a new survey:</h2>
 <div class="form-control">
