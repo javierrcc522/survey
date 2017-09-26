@@ -20,15 +20,20 @@ end
 
 get("/survey/new/:id") do
   @survey = Survey.find(params[:id])
-  @question = Question.all()
+  @question = @survey.questions()
   erb(:survey_info)
 end
 
+post("/survey/:id") do
+  Question.create({:question => params['question'], :survey_id => params[:id]})
+  redirect("/survey/new/#{params[:id]}") #21 id similar redirect to
+end
+
 patch("/survey/:id") do
-  @survey = Survey.find(params[:id])
+  survey = Survey.find(params[:id])
   description = params['description']
-  @survey.update({:description => description})
-  erb(:survey_info)
+  survey.update({:description => description})
+  redirect("/survey/new/#{params[:id]}")
 end
 
 delete("/survey/:id") do

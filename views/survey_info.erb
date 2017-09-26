@@ -1,9 +1,27 @@
 <h1><%= @survey.description %></h1><br>
 
+<h3> Questions: <h3>
+  <ul>
+    <h5><% @question.each do |q| %>
+    <li><%= q.question %></li>
+    <% end %></h5>
+  </ul>
+
+<h2>Add questions:</h2>
+<div class="form-control">
+  <form action="/survey/<%= @survey.id %>" method="post">
+    <label for="question">Add a question to this survey:</label>
+    <input name="question" type="text" id="question">
+    <button type="submit">Add!</button>
+  </form>
+</div>
+
+
+
 
   <form action="/survey/<%= @survey.id %>" method="post">
     <input name="_method" type="hidden" value="patch">
-    <label for="description">Update your survey</label>
+    <label for="description">rename your survey</label>
     <input name="description" type="text" id="description">
     <button type="submit">Update</button>
   </form>
