@@ -14,7 +14,7 @@ end
 
 post("/survey/new") do
   Survey.create({:description => params['description']})
-  @survey = Survey.all
+  @survey = Survey.all()
   erb(:index)
 end
 
@@ -28,7 +28,5 @@ patch("/survey/:id") do
   @survey = Survey.find(params[:id])
   description = params['description']
   @survey.update({:description => description})
-
-
   erb(:survey_info)
 end
